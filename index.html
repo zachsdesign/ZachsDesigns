@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zach's Web Designs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      background-color: #0a0a23;
+    }
+
+    /* Canvas background */
+    #codeCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      border-radius: 16px;
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #0a0a23;
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .feature-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .feature-card h3 {
+      color: #0a0a23;
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    .pricing-table, .maintenance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .pricing-table th, .pricing-table td,
+    .maintenance-table th, .maintenance-table td {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .pricing-table th,
+    .maintenance-table th {
+      background-color: #0a0a23;
+      color: white;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.5rem;
+      color: #666;
+    }
+
+    .cta {
+      background: #0a0a23;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin-top: 3rem;
+    }
+
+    .cta h2 {
+      margin: 0 0 1rem 0;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 2rem;
+      background: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="codeCanvas"></canvas>
+
+<header>
+  <img src="zachslogo.png" alt="Zach's Logo" />
+  <h1>Zach's Web Designs</h1>
+  <p>We build websites and apps that automate and grow your business</p>
+</header>
+
+<section>
+  <h2 class="section-title">Why Choose Us?</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Business Automation</h3>
+      <p>Our websites and web apps are designed to streamline operations like bookings, invoicing, inventory, and more — so you save time and reduce errors.</p>
+    </div>
+    <div class="feature-card">
+      <h3>eCommerce Integration</h3>
+      <p>We build modern stores that accept card payments. Funds go straight to your local bank account within 2 business days — boosting trust and conversions.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Ad Campaign Ready</h3>
+      <p>Link Facebook and TikTok ads directly to your product pages for fast checkout experiences. Convert clicks into customers effortlessly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="image-section">
+  <h2 class="section-title">Ad Integration Example</h2>
+  <p style="text-align:center;">Your product. One click from Instagram or TikTok. Direct to checkout.</p>
+  <img src="woodmart.png" alt="Ad integration and eCommerce example" />
+</section>
+
+<section>
+  <h2 class="section-title">Website Packages</h2>
+  <table class="pricing-table">
+    <tr>
+      <th>Package</th>
+      <th>Price (TTD)</th>
+    </tr>
+    <tr>
+      <td>One Page Website</td>
+      <td>$1500</td>
+    </tr>
+    <tr>
+      <td>Informational Website</td>
+      <td>$3000</td>
+    </tr>
+    <tr>
+      <td>eCommerce Website</td>
+      <td>$5000</td>
+    </tr>
+  </table>
+  <p class="note">All prices are in Trinidad & Tobago Dollars (TTD).</p>
+</section>
+
+<section class="cta">
+  <h2>Need a Custom Web App or Unique Website?</h2>
+  <p>Let's build something tailored to your business needs.</p>
+  <a href="mailto:your@email.com">Contact Us</a>
+</section>
+
+<section>
+  <h2 class="section-title">E-commerce Maintenance Plans</h2>
+  <table class="maintenance-table">
+    <tr>
+      <th>Plan</th>
+      <th>Price (TTD / Month)</th>
+      <th>Details</th>
+    </tr>
+    <tr>
+      <td>Basic Maintenance</td>
+      <td>$300</td>
+      <td>Up to 500 products, store management, hosting, backups, security scans</td>
+    </tr>
+    <tr>
+      <td>Advanced Maintenance</td>
+      <td>$700</td>
+      <td>Up to 1000 products, all features in basic plan included</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  &copy; 2025 Zach's Web Designs. All rights reserved.
+</footer>
+
+<!-- Animated Code Canvas Background -->
+<script>
+  const canvas = document.getElementById('codeCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = Math.floor(canvas.width / fontSize);
+    drops = Array(columns).fill(1);
+  }
+
+  let chars = 'const let function () {} return if else => import export async await new try catch var class html css js React Node nextApp()'.split(' ');
+  let fontSize = 20;
+  let columns = canvas.width / fontSize;
+  let drops = Array.from({ length: columns }).fill(1);
+
+  function draw() {
+    ctx.fillStyle = "rgba(10,10,35,0.08)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#00ffaa";
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+      let text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.93) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 40);
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  window.addEventListener('scroll', () => {
+    canvas.style.transform = `translateY(${-window.scrollY * 0.2}px)`;
+  });
+</script>
+
+</body>
+</html>
