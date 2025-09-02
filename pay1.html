@@ -3,49 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered PayPal Button</title>
+  <title>PayPal Subscription Buttons</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
       display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center;     /* Center vertically */
-      background: #f8f8f8;
+      flex-direction: column; /* stack buttons vertically */
+      justify-content: center;
+      align-items: center;
+      gap: 40px; /* spacing between buttons */
+      height: 100vh;
+      margin: 0;
+      background: #f9f9f9;
+    }
+    .paypal-button-container {
+      transform: scale(1.5); /* make buttons bigger */
+      transform-origin: center;
     }
 
-    #paypal-button-container-P-54J154059V406153RNCWJNRI {
-      transform: scale(1.5);   /* Make button larger */
-      transform-origin: center; /* Keep scaling centered */
+    /* Responsive scaling on mobile */
+    @media (max-width: 600px) {
+      .paypal-button-container {
+        transform: scale(1.2);
+      }
     }
   </style>
 </head>
 <body>
-  <div id="paypal-button-container-P-54J154059V406153RNCWJNRI"></div>
+
+  <!-- First Button -->
+  <div id="paypal-button-container-P-5FG42080VX334781DNCZVBZQ" class="paypal-button-container"></div>
+
+  <!-- Second Button -->
+  <div id="paypal-button-container-P-54J154059V406153RNCWJNRI" class="paypal-button-container"></div>
 
   <script src="https://www.paypal.com/sdk/js?client-id=ATF7RxkMtKknoVdssp2x4sHLMa_QJGTr0U5SueOHVG7wh8SfC9T_tFkkpTO97pDd5g_GYM4ERaY5QMa0&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
   <script>
+    // First Button
     paypal.Buttons({
-      style: {
-        shape: 'rect',
-        color: 'silver',
-        layout: 'vertical',
-        label: 'paypal'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          plan_id: 'P-54J154059V406153RNCWJNRI'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID);
-      }
+        style: {
+            shape: 'rect',
+            color: 'silver',
+            layout: 'vertical',
+            label: 'paypal'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            plan_id: 'P-5FG42080VX334781DNCZVBZQ'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert("First Subscription: " + data.subscriptionID);
+        }
+    }).render('#paypal-button-container-P-5FG42080VX334781DNCZVBZQ');
+
+    // Second Button
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'silver',
+            layout: 'vertical',
+            label: 'paypal'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            plan_id: 'P-54J154059V406153RNCWJNRI'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert("Second Subscription: " + data.subscriptionID);
+        }
     }).render('#paypal-button-container-P-54J154059V406153RNCWJNRI');
   </script>
+
 </body>
 </html>
-
-
-
-
-
