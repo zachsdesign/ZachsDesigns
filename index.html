@@ -67,11 +67,12 @@
     border-radius: 10px;
     font-size: 1rem;
     text-decoration: none;
-    background: #1f2937; /* dark slate */
+    background: #1f2937;
     color: #fff;
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     box-shadow: 0 8px 26px rgba(0,0,0,0.35);
   }
+
   .btn:hover { background:#374151; transform: translateY(-1px); }
   .btn:active { transform: translateY(0); }
 
@@ -92,6 +93,17 @@
     color: #fff;
     text-shadow: 0 0 6px rgba(0, 255, 0, 0.25);
     text-align: center;
+  }
+
+  .section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .section ul li {
+    margin: 8px 0;
+    line-height: 1.5;
+    font-size: 1rem;
   }
 
   .pricing {
@@ -121,16 +133,8 @@
     font-size: 1.6rem;
     font-weight: 700;
     margin: 10px 0 18px;
-    color: #34d399; /* emerald */
+    color: #34d399;
     text-shadow: 0 0 6px rgba(52,211,153,0.35);
-  }
-
-  .footer {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #aaa;
   }
 
   /* -------- Modern Form Styles -------- */
@@ -139,11 +143,13 @@
     gap: 18px;
     margin-top: 10px;
   }
+
   .form-row {
     display: grid;
     gap: 16px;
     grid-template-columns: 1fr 1fr;
   }
+
   @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
 
   .input {
@@ -158,19 +164,13 @@
     transition: border .18s ease, box-shadow .18s ease, background .18s ease;
     box-shadow: inset 0 0 0 9999px rgba(255,255,255,0.02);
   }
-  .input::placeholder { color: #9ca3af; }
+
   .input:focus {
-    border-color: #10b981; /* emerald */
+    border-color: #10b981;
     box-shadow: 0 0 0 4px rgba(16,185,129,0.18);
-    background: rgba(17,17,17,0.7);
   }
 
-  .label {
-    display: block;
-    font-size: .92rem;
-    color: #cbd5e1;
-    margin-bottom: 8px;
-  }
+  .label { display: block; margin-bottom: 8px; color: #cbd5e1; }
 
   .submit-btn {
     width: 100%;
@@ -181,99 +181,185 @@
     color: #fff;
     font-weight: 700;
     cursor: pointer;
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    box-shadow: 0 14px 30px rgba(5,150,105,0.35);
-  }
-  .submit-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
-  .submit-btn:active { transform: translateY(0); }
-
-  .hint {
-    font-size: 0.85rem;
-    color: #9ca3af;
-    margin-top: 4px;
   }
 
-  /* Portfolio grid */
+  /* Portfolio Grid */
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 18px;
     margin-top: 8px;
   }
+
   .shot {
     aspect-ratio: 16 / 10;
     width: 100%;
-    background:none;
-    border: none;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: none;
+    transition: transform .35s ease, box-shadow .35s ease;
   }
-  .shot img {
+
+  .shot a img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display:block;
+    transition: transform .35s ease, filter .35s ease;
   }
+
+  .shot:hover { transform: translateY(-8px); box-shadow: 0 18px 38px rgba(0, 0, 0, 0); }
+  .shot:hover img { transform: scale(1.03); filter: brightness(1.05); }
+
+  /* Fade-in Animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: var(--d, 0s);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  .footer { margin-top: 40px; text-align: center; color: #aaa; }
+
+  /* About (Freelancer) */
+.about {
+  background: rgba(30,30,30,0.9);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 30px 0;
+  color: #eee;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+  color: #fff;
+  text-shadow: 0 0 6px rgba(0,255,0,0.25);
+}
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 14px;
+  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.4);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.avatar:hover { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(0,0,0,0.5); }
+.about p { color: #d1d5db; line-height: 1.6; max-width: 720px; margin: 0 auto 12px; }
+.about .tag {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .9rem;
+  background: rgba(16,185,129,.12);
+  border: 1px solid rgba(16,185,129,.35);
+  color: #a7f3d0;
+}
+
   </style>
 </head>
 <body>
-  <!-- Matrix Background -->
   <canvas id="matrixCanvas"></canvas>
 
-  <!-- Content -->
   <div class="content">
-    <img src="zachslogo.png" alt="Zach's Designs Logo" class="logo">
-    <h1>🚀 Get Your Website in 1 Day</h1>
-    <p class="lead">We design and launch websites that turn your visitors into customers</p>
+    <img src="zachslogo.png" alt="Zach's Designs Logo" class="logo reveal" style="--d:.05s">
+    <h1 class="reveal" style="--d:.1s">🚀 Get Your Website in 1 Day</h1>
+    <p class="lead reveal" style="--d:.15s">We design and launch websites that turn your visitors into customers</p>
 
-    <!-- Styled Web3Forms Form -->
-    <div class="section">
+    <!-- ✅ Benefits Section -->
+    <div class="section reveal" style="--d:.1s">
+      <h2>Benefits of Having a Website</h2>
+      <ul>
+        <li>🚀 Your website is designed to load super-fast for a better user experience.</li>
+        <li>📱 It’s mobile-friendly, ensuring easy access on any device.</li>
+        <li>🗺️ Customers can quickly find key information such as:
+          <ul>
+            <li>Location</li>
+            <li>Services</li>
+            <li>Pricing</li>
+          </ul>
+        </li>
+        <li>💼 Helps your business stand out online and stay ahead of the competition.</li>
+        <li>📈 Option to include digital marketing solutions to:
+          <ul>
+            <li>Boost your Google reviews</li>
+            <li>Increase visibility and brand awareness</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 👤 About the CEO -->
+<div class="about reveal" style="--d:.1s">
+  <h2>Meet the Freelancer Behind the Work</h2>
+  <div class="avatar">
+    <img src="me.jpg" alt="Photo of Zachery — Web Designer & Automation Specialist" loading="lazy" decoding="async">
+  </div>
+  <p>Hey, I’m Zachery. I build fast, modern one-page sites that convert—plus booking flows, payments, and smart automations so you capture more leads with less effort.</p>
+  <span class="tag">Based in Trinidad &amp; Tobago • GMT-4</span>
+</div>
+
+
+    <!-- ✅ Contact Form -->
+    <div class="section reveal" style="--d:.1s">
       <h2>We will use the information you submit to build your website</h2>
-
       <form class="form-wrap" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="6b7faacb-d1f8-4e7b-a865-dbd60ce6ddb9">
-        <!-- Optional extras for nicer inboxing -->
         <input type="hidden" name="from_name" value="Zach's Web Designs">
         <input type="hidden" name="subject" value="New Website Request">
 
         <div class="form-row">
           <div>
-            <label class="label" for="name">Your Name</label>
-            <input class="input" id="name" type="text" name="name" placeholder="John Doe" required>
+            <label class="label">Your Name</label>
+            <input class="input" type="text" name="name" placeholder="John Doe" required>
           </div>
           <div>
-            <label class="label" for="email">Email</label>
-            <input class="input" id="email" type="email" name="email" placeholder="you@company.com" required>
+            <label class="label">Email</label>
+            <input class="input" type="email" name="email" placeholder="you@company.com" required>
           </div>
         </div>
 
         <div class="form-row">
           <div>
-            <label class="label" for="phone">Phone / WhatsApp</label>
-            <input class="input" id="phone" type="tel" name="phone" placeholder="+1 (868) 479-5116">
-            <div class="hint">We’ll contact you here for quick follow-ups.</div>
+            <label class="label">Phone / WhatsApp</label>
+            <input class="input" type="tel" name="phone" placeholder="+1 (868) 479-5116">
           </div>
           <div>
-            <label class="label" for="business">Business Name</label>
-            <input class="input" id="business" type="text" name="business" placeholder="Construction Ltd.">
+            <label class="label">Business Name</label>
+            <input class="input" type="text" name="business" placeholder="Construction Ltd.">
           </div>
         </div>
 
         <div>
-          <label class="label" for="message">Project Details</label>
-          <textarea class="input" id="message" name="message" rows="6" placeholder="Tell us what you need (e.g., one-page site, ecommerce, booking, payment gateway)…" required></textarea>
+          <label class="label">Project Details</label>
+          <textarea class="input" name="message" rows="6" placeholder="Tell us what you need (e.g., one-page site, ecommerce, booking, payment gateway)…" required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">Submit Request</button>
-        <div class="hint">Submitting sends your info securely to our team. We reply within 24 hours.</div>
       </form>
     </div>
 
+    <!-- ... rest of your sections remain unchanged (plans, portfolio, etc.) -->
+  </div>
 
-    <div class="section">
-          <h2 style="margin-top:0; text-align:center;">💰 Website Packages (One-Time Payment, No Hidden Fees)</h2>
 
-      <div class="plan">
+
+
+    <div class="section reveal" style="--d:.1s">
+      <h2 style="margin-top:0; text-align:center;">💰 Website Packages (One-Time Payment, No Hidden Fees)</h2>
+
+      <div class="plan reveal" style="--d:.15s">
         <h3>Business Plan</h3>
         <p class="price">$2000</p>
         <p>✔ One-page professional website<br>
@@ -286,15 +372,13 @@
            ✔ Mobile-friendly design<br>
            ✔ Revisions (up to 3)<br>
            Additional updates = $100 each<br>
-
-
         </p>
         <a href="pay.html" class="btn">👉 Get Now</a>
       </div>
     </div>
 
-    <div class="section">
-      <div class="plan">
+    <div class="section reveal" style="--d:.1s">
+      <div class="plan reveal" style="--d:.15s">
         <h3>Premium Plan</h3>
         <p class="price">$3000</p>
 
@@ -308,25 +392,39 @@
            ✔ Mobile-friendly design<br>
            ✔ Revisions (up to 10)<br>
            Additional updates = $100 each<br>
-
         </p>
         <a href="pay.html" class="btn">👉 Get Now</a>
       </div>
     </div>
 
     <!-- PORTFOLIO (replaces “Need a custom project built?”) -->
-    <div class="section">
+    <div class="section reveal" style="--d:.1s">
       <h2>📂 Portfolio</h2>
       <div class="portfolio-grid">
-        <div class="shot"> <a href="https://barneysautogarage.com/"> <img src="1.png"> </a> url="" alt="Barney's Garage"></div>
-        <div class="shot"> <a href="https://cyberbusinesstt.com/"><img src="2.png"> </a> alt="Cyber Business Ltd."></div>
-        <div class="shot"> <a href="https://zachsdesign.github.io/TerraceView/"> <img src="3.png"> </a> alt="Terrace View Medical"></div>
-        <div class="shot"> <a href="https://zachsdesign.github.io/Callelujah-Ltd/"> <img src="4.png">  </a> alt="Callelujah Ltd."></div>
-  
+        <div class="shot reveal" style="--d:.05s">
+          <a href="https://barneysautogarage.com/" target="_blank" rel="noopener">
+            <img src="1.png" alt="Barney's Garage">
+          </a>
+        </div>
+        <div class="shot reveal" style="--d:.1s">
+          <a href="https://cyberbusinesstt.com/" target="_blank" rel="noopener">
+            <img src="2.png" alt="Cyber Business Ltd.">
+          </a>
+        </div>
+        <div class="shot reveal" style="--d:.15s">
+          <a href="https://zachsdesign.github.io/TerraceView/" target="_blank" rel="noopener">
+            <img src="3.png" alt="Terrace View Medical">
+          </a>
+        </div>
+        <div class="shot reveal" style="--d:.2s">
+          <a href="https://zachsdesign.github.io/Callelujah-Ltd/" target="_blank" rel="noopener">
+            <img src="4.png" alt="Callelujah Ltd.">
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="footer">
+    <div class="footer reveal" style="--d:.1s">
       © 2025 Zach's Web Designs. All rights reserved.
     </div>
   </div>
@@ -360,6 +458,29 @@
       canvas.width = window.innerWidth;
     });
   </script>
+
+  <!-- Fade-in on scroll (IntersectionObserver) -->
+  <script>
+    (function() {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReduced) {
+        // If user prefers reduced motion, reveal everything immediately.
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after reveal for performance
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+  </script>
 </body>
 </html>
-
