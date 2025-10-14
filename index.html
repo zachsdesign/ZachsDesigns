@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zach's Designs - Professional Websites</title>
+  <title>Zach's Web Designs - Professional Websites</title>
   <style>
   /* Reset & Fonts */
   * {
@@ -51,15 +51,6 @@
     color: #fff;
     text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
   }
-  video {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto 15px; /* centers video and adds spacing below */
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,255,0,0.3);
-}
-
 
   p.lead {
     font-size: 1.2rem;
@@ -73,45 +64,34 @@
     display: inline-block;
     margin: 10px;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1rem;
     text-decoration: none;
-    background: #333;
+    background: #1f2937; /* dark slate */
     color: #fff;
-    transition: 0.3s;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.35);
   }
-
-  .btn:hover {
-    background: #555;
-  }
+  .btn:hover { background:#374151; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
 
   .section {
     background: rgba(30, 30, 30, 0.9);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 30px;
     margin: 30px 0;
     text-align: left;
     color: #eee;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.06);
   }
 
   .section h2 {
     font-size: 1.8rem;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color: #fff;
     text-shadow: 0 0 6px rgba(0, 255, 0, 0.25);
-  }
-
-  .section ul {
-    list-style: none;
-    margin-top: 10px;
-  }
-
-  .section ul li {
-    margin: 8px 0;
-    font-size: 1rem;
-    line-height: 1.5;
+    text-align: center;
   }
 
   .pricing {
@@ -119,17 +99,16 @@
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 20px;
+    gap: 24px;
   }
 
   .plan {
     flex: 1 1 300px;
-    margin: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    border-radius: 14px;
+    padding: 22px;
     text-align: center;
-    border: 1px solid #444;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    border: 1px solid #2c2c2c;
   }
 
   .plan h3 {
@@ -139,11 +118,11 @@
   }
 
   .plan p.price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 10px 0 20px;
-    color: #0f0;
-    text-shadow: 0 0 6px rgba(0,255,0,0.4);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 10px 0 18px;
+    color: #34d399; /* emerald */
+    text-shadow: 0 0 6px rgba(52,211,153,0.35);
   }
 
   .footer {
@@ -153,7 +132,89 @@
     font-size: 0.9rem;
     color: #aaa;
   }
-</style>
+
+  /* -------- Modern Form Styles -------- */
+  .form-wrap {
+    display: grid;
+    gap: 18px;
+    margin-top: 10px;
+  }
+  .form-row {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+  .input {
+    appearance: none;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(17,17,17,0.5);
+    color: #e5e7eb;
+    outline: none;
+    transition: border .18s ease, box-shadow .18s ease, background .18s ease;
+    box-shadow: inset 0 0 0 9999px rgba(255,255,255,0.02);
+  }
+  .input::placeholder { color: #9ca3af; }
+  .input:focus {
+    border-color: #10b981; /* emerald */
+    box-shadow: 0 0 0 4px rgba(16,185,129,0.18);
+    background: rgba(17,17,17,0.7);
+  }
+
+  .label {
+    display: block;
+    font-size: .92rem;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    box-shadow: 0 14px 30px rgba(5,150,105,0.35);
+  }
+  .submit-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+
+  .hint {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-top: 4px;
+  }
+
+  /* Portfolio grid */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 8px;
+  }
+  .shot {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    background:none;
+    border: none;
+    overflow: hidden;
+    box-shadow: none;
+  }
+  .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display:block;
+  }
+  </style>
 </head>
 <body>
   <!-- Matrix Background -->
@@ -162,111 +223,142 @@
   <!-- Content -->
   <div class="content">
     <img src="zachslogo.png" alt="Zach's Designs Logo" class="logo">
-    <h1>🚀 Zach's Designs</h1>
-    <p class="lead">
-      Get a Professional Website That Works for Your Business</p>
-     <h2> 💰 Website Packages (One-Time Payment, No Hidden Fees)
-    </h2>
+    <h1>🚀 Get Your Website in 1 Day</h1>
+    <p class="lead">We design and launch websites that turn your visitors into customers</p>
 
+    <!-- Styled Web3Forms Form -->
     <div class="section">
-        <div class="plan">
-          <h3>Business Plan</h3>
-          <video controls>
-        <source src="Business.mp4" type="video/mp4">
-      </video>
-          <p class="price">$2000</p>
-          <p>✔ One-page professional website<br>
-             ✔ Launched in 24 hours<br>
-             ✔ Google maps integration<br>
-             ✔ Social media links<br>
-             ✔ WhatsApp contact form<br>
-            ✔ Appointment booking form<br>
-            (If you already use a booking app, I can integrate that instead)<br>
-            ✔ Mobile-friendly design<br>
-          </p>
-          <a href="pay.html" class="btn">👉Get Standard Plan</a>
+      <h2>We will use the information you submit to build your website</h2>
+
+      <form class="form-wrap" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="6b7faacb-d1f8-4e7b-a865-dbd60ce6ddb9">
+        <!-- Optional extras for nicer inboxing -->
+        <input type="hidden" name="from_name" value="Zach's Web Designs">
+        <input type="hidden" name="subject" value="New Website Request">
+
+        <div class="form-row">
+          <div>
+            <label class="label" for="name">Your Name</label>
+            <input class="input" id="name" type="text" name="name" placeholder="John Doe" required>
+          </div>
+          <div>
+            <label class="label" for="email">Email</label>
+            <input class="input" id="email" type="email" name="email" placeholder="you@company.com" required>
+          </div>
         </div>
-    </div>
 
-    <div class="section">
-        <div class="plan">
-          <h3>Ecommerce Plan</h3>
-          <video controls>
-        <source src="Ecommerce.mp4" type="video/mp4">
-      </video>
-          <p class="price">$4000</p>
-      <p>✔ Unlimited Product Uploads</p>
-      <p>✔ Fully Built Online Store</p>
-      <p>✔ Store Management App (Track sales, edit products & receive order notifications)</p>
-      <p>✔ I upload up to <strong>30 products</strong> for you</p>
-      <p><em>$5 per additional product upload</em></p>
-      <p>✔ Or use the store management app to upload on your own</p>
-          <a href="pay.html" class="btn">👉Get Ecommerce Plan</a>
+        <div class="form-row">
+          <div>
+            <label class="label" for="phone">Phone / WhatsApp</label>
+            <input class="input" id="phone" type="tel" name="phone" placeholder="+1 (868) 479-5116">
+            <div class="hint">We’ll contact you here for quick follow-ups.</div>
+          </div>
+          <div>
+            <label class="label" for="business">Business Name</label>
+            <input class="input" id="business" type="text" name="business" placeholder="Construction Ltd.">
+          </div>
         </div>
+
+        <div>
+          <label class="label" for="message">Project Details</label>
+          <textarea class="input" id="message" name="message" rows="6" placeholder="Tell us what you need (e.g., one-page site, ecommerce, booking, payment gateway)…" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Request</button>
+        <div class="hint">Submitting sends your info securely to our team. We reply within 24 hours.</div>
+      </form>
+    </div>
+
+
+    <div class="section">
+          <h2 style="margin-top:0; text-align:center;">💰 Website Packages (One-Time Payment, No Hidden Fees)</h2>
+
+      <div class="plan">
+        <h3>Business Plan</h3>
+        <p class="price">$1000</p>
+        <p>✔ One-page professional website<br>
+           ✔ Launched in 24 hours<br>
+           ✔ Google Maps integration<br>
+           ✔ Social media links<br>
+           ✔ WhatsApp contact form<br>
+           ✔ Google reviews <br>
+           ✔ Appointment booking form<br>
+           ✔ Mobile-friendly design<br>
+           ✔ Revisions (up to 3)<br>
+           Additional updates = $100 each<br>
+
+
+        </p>
+        <a href="pay.html" class="btn">👉 Get Now</a>
+      </div>
     </div>
 
     <div class="section">
-      <h2>🎯 Why Choose Zach's Designs?</h2>
-      <ul>
-        <li>✔ Affordable pricing</li>
-        <li>✔ No big upfront costs</li>
-        <li>✔ Website ready in just one day</li>
-        <li>✔ Built for local businesses</li>
-        <li>✔ Designed to capture leads & grow sales</li>
-      </ul>
+      <div class="plan">
+        <h3>Premium Plan</h3>
+        <p class="price">$2500</p>
+
+        <p>✔ One-page professional website<br>
+           ✔ Launched in 24 hours<br>
+           ✔ Google Maps integration<br>
+           ✔ Social media links<br>
+           ✔ WhatsApp contact form<br>
+           ✔ Google reviews <br>
+           ✔ Appointment booking form<br>
+           ✔ Mobile-friendly design<br>
+           ✔ Revisions (up to 10)<br>
+           Additional updates = $100 each<br>
+
+        </p>
+        <a href="pay.html" class="btn">👉 Get Now</a>
+      </div>
     </div>
 
-    <div class="section" style="text-align:center;">
-      <h2>📞 Need a custom project built?</h2>
-      <a href="https://wa.me/18684795116" class="btn">👉 <strong>Let's Talk</strong> </a>
+    <!-- PORTFOLIO (replaces “Need a custom project built?”) -->
+    <div class="section">
+      <h2>📂 Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="shot"> <a href="https://barneysautogarage.com/"> <img src="1.png"> </a> url="" alt="Barney's Garage"></div>
+        <div class="shot"> <a href="https://cyberbusinesstt.com/"><img src="2.png"> </a> alt="Cyber Business Ltd."></div>
+        <div class="shot"> <a href="https://zachsdesign.github.io/TerraceView/"> <img src="3.png"> </a> alt="Terrace View Medical"></div>
+        <div class="shot"> <a href="https://zachsdesign.github.io/Callelujah-Ltd/"> <img src="4.png">  </a> alt="Callelujah Ltd."></div>
+  
+      </div>
     </div>
 
     <div class="footer">
-      © 2025 Zach's Designs. All rights reserved.
+      © 2025 Zach's Web Designs. All rights reserved.
     </div>
   </div>
 
   <!-- Matrix Animation Script -->
   <script>
-  const canvas = document.getElementById("matrixCanvas");
-  const ctx = canvas.getContext("2d");
-
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const letters = "01<>/={}[]#@$&%*".split("");
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = Array(Math.floor(columns)).fill(1);
-
-  function draw() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.08)"; // darker overlay → softer effect
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "rgba(0,255,0,0.25)"; // subtle green glow
-    ctx.font = fontSize + "px monospace";
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) {
-        drops[i] = 0;
-      }
-      drops[i]++;
-    }
-  }
-
-  setInterval(draw, 60); // slower for subtlety
-
-  window.addEventListener("resize", () => {
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-  });
-</script>
+    const letters = "01<>/={}[]#@$&%*".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0,255,0,0.25)";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 60);
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
-
-
-
-
